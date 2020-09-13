@@ -9,6 +9,7 @@ import com.ryan.github.kndroid.practice.coroutines.FetchImage
 import com.ryan.github.kndroid.practice.generic.GenericPractice
 import com.ryan.github.kndroid.practice.generic.Person
 import com.ryan.github.kndroid.practice.generic.Student
+import com.ryan.github.kndroid.practice.type.DataClassPractice
 import kotlinx.coroutines.*
 import kotlin.coroutines.EmptyCoroutineContext
 
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        DataClassPractice.test()
+
         val scope = CoroutineScope(EmptyCoroutineContext)
         scope.launch(Dispatchers.Main) {
             // 加载网络请求
@@ -40,10 +43,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        testGeneric()
+        testGeneric1()
+        testGeneric2()
     }
 
-    private fun testGeneric() {
+    private fun testGeneric1() {
         // 支持逆变
         val test = GenericPractice<Student>()
         val arr = arrayOfNulls<Person>(1)
@@ -51,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         test.fill(arr, person)
     }
 
-    private fun testGenericCopy() {
+    private fun testGeneric2() {
         // 数组拷贝
         val test = GenericPractice<Person>()
         val from = arrayOf(Student("Ryan", 12))
