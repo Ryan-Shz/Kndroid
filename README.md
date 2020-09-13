@@ -1,2 +1,2 @@
 # Kndroid
-A project 
+A kotlin practice project.
