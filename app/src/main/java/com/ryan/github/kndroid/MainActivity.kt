@@ -2,16 +2,20 @@ package com.ryan.github.kndroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.ryan.github.kndroid.practice.coroutines.FetchApi
 import com.ryan.github.kndroid.practice.coroutines.FetchImage
+import com.ryan.github.kndroid.practice.function.*
 import com.ryan.github.kndroid.practice.generic.GenericPractice
 import com.ryan.github.kndroid.practice.generic.Person
 import com.ryan.github.kndroid.practice.generic.Student
-import com.ryan.github.kndroid.practice.type.DataClassPractice
+import com.ryan.github.kndroid.practice.type.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.EmptyCoroutineContext
+
+const val TAG = "KAndroid"
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,9 +30,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        dataClassTest()
+        testGeneric1()
+        testGeneric2()
+        testNumberUtilAndCost()
+        coroutineTest()
+        printViewId(statusIv)
+    }
 
-        DataClassPractice.test()
-
+    private fun coroutineTest() {
         val scope = CoroutineScope(EmptyCoroutineContext)
         scope.launch(Dispatchers.Main) {
             // 加载网络请求
@@ -42,9 +52,6 @@ class MainActivity : AppCompatActivity() {
                 statusIv.setImageBitmap(bitmap)
             }
         }
-
-        testGeneric1()
-        testGeneric2()
     }
 
     private fun testGeneric1() {
@@ -64,4 +71,12 @@ class MainActivity : AppCompatActivity() {
         test.copy(from, to)
     }
 
+    private fun testNumberUtilAndCost() {
+        printlnTimeCost("Array", ::avgNumbersByArray)
+        printlnTimeCost("IntArray", ::avgNumbersByArray)
+        printlnTimeCost("List", ::avgNumbersByList)
+
+        val divByTreeList = divByTree()
+        Log.i(TAG, "div by tree list: $divByTreeList")
+    }
 }

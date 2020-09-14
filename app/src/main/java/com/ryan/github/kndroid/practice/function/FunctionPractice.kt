@@ -7,6 +7,42 @@ import kotlin.concurrent.thread
  *
  * @author Ryan
  */
+class Foo {
+    fun bar() = println("bar")
+}
+
+fun test() {
+    val foo = Foo()
+    val bar: (Foo) -> Unit = Foo::bar
+
+    foo.bar()
+    bar.invoke(foo)
+
+    multiParameters(1, 2, 3, 4)
+
+    val (a, b, c) = multiReturnValues()
+
+    defaultParameters(y = "World")
+
+    // 通过扩展方法
+    val email = "Ryan.sc.shz@gmail.com"
+    email.isEmail()
+}
+
+// 变长参数
+fun multiParameters(vararg args: Int) {
+    args.forEach {
+        println(it)
+    }
+}
+
+// 多返回值的实现
+fun multiReturnValues(): Triple<Int, Long, String> {
+    return Triple(1, 2L, "Hello")
+}
+
+fun defaultParameters(x: Int = 0, y: String = "Hello", z: Long = 0L) {}
+
 // 什么时候使用inline?
 // 1. 创建的如果是高阶函数则可以直接加上inline
 // 2. 如果对包大小很敏感，则可以只加在频繁调用的高阶函数上

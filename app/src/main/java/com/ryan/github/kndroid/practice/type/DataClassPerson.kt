@@ -5,4 +5,4 @@ package com.ryan.github.kndroid.practice.type
  *
  * @author Ryan
  */
-data class Person(val name: String, val age: Int)
+data class DataClassPerson(val name: String, val age: Int)

@@ -7,15 +7,10 @@ import com.google.gson.Gson
  *
  * @author Ryan
  */
-class DataClassPractice {
-
-    companion object {
-        fun test() {
-            val person = Person("Ryan", 12)
-            val gson = Gson()
-            val dataJson = gson.toJson(person)
-            val (name, age) = gson.fromJson<Person>(dataJson, Person::class.java)
-            println("name: $name, age: $age")
-        }
-    }
+fun dataClassTest() {
+    val person = DataClassPerson("Ryan", 12)
+    val gson = Gson()
+    val dataJson = gson.toJson(person)
+    val (name, age) = gson.fromJson<DataClassPerson>(dataJson, DataClassPerson::class.java)
+    println("name: $name, age: $age")
 }
