@@ -76,3 +76,9 @@ inline fun noneLocalReturns(crossinline block: () -> Unit) {
         block()
     }.start()
 }
+
+class FuncTest {
+    val func: () -> Unit = fun() {
+        
+    }
+}

@@ -5,6 +5,4 @@ package com.ryan.github.kndroid.practice.generic
  *
  * @author Ryan
  */
-open class Person(val name: String, val age: Int) {
-
-}
+open class Person(val name: String, val age: Int)

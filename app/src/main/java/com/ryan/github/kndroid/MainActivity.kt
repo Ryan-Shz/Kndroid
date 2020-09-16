@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.ryan.github.kndroid.practice.coroutines.FetchApi
 import com.ryan.github.kndroid.practice.coroutines.FetchImage
+import com.ryan.github.kndroid.practice.expression.testStringOperator
 import com.ryan.github.kndroid.practice.function.*
 import com.ryan.github.kndroid.practice.generic.GenericPractice
 import com.ryan.github.kndroid.practice.generic.Person
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         testNumberUtilAndCost()
         coroutineTest()
         printViewId(statusIv)
+        testStringOperator()
     }
 
     private fun coroutineTest() {
@@ -51,6 +53,8 @@ class MainActivity : AppCompatActivity() {
             if (bitmap != null) {
                 statusIv.setImageBitmap(bitmap)
             }
+            // 测试Retrofit请求
+            retrofitRequest()
         }
     }
 
