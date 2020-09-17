@@ -3,6 +3,8 @@
 
 package com.ryan.github.kndroid.practice.forjava
 
+import com.ryan.github.kndroid.practice.type.Food
+
 // 2. 作用在getter、setter上，修改它们的名称
 @get:JvmName(name = "getTestName")
 val name: String = "Ryan"

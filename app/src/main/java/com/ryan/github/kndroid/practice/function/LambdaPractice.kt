@@ -8,5 +8,6 @@ class LambdaPractice {
     // 创建一个Lambda形式的匿名函数
     val anonymousFunc2 = { name: String ->
         println(name)
+        "123"
     }
 }

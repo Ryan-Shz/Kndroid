@@ -69,6 +69,8 @@ fun mapOp() {
     map2.remove("name")
     map2 -= "name"
 
+    2.to(3)
+
     // 修改
     map2["name"] = "Tom"
 

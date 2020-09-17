@@ -1,5 +1,9 @@
 package com.ryan.github.kndroid.practice.forjava
 
+fun testa() {
+
+}
+
 class JvmFieldTest {
 
     /**
