@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.ryan.github.kndroid.practice.coroutines.FetchApi
 import com.ryan.github.kndroid.practice.coroutines.FetchImage
+import com.ryan.github.kndroid.practice.coroutines.testCallbackToCoroutine
 import com.ryan.github.kndroid.practice.expression.testStringOperator
 import com.ryan.github.kndroid.practice.function.*
 import com.ryan.github.kndroid.practice.generic.GenericPractice
@@ -54,7 +55,10 @@ class MainActivity : AppCompatActivity() {
                 statusIv.setImageBitmap(bitmap)
             }
             // 测试Retrofit请求
-            retrofitRequest()
+            retrofitRequest(this@MainActivity)
+            // 将回调转换为协程的测试用例
+            val res = testCallbackToCoroutine()
+            Log.i(TAG, "result: $res")
         }
     }
 
