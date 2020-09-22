@@ -3,6 +3,7 @@ package com.ryan.github.kndroid.practice.coroutines
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -23,6 +24,7 @@ class CoroutineActivity : AppCompatActivity() {
 
         val testIv1 = findViewById<ImageView>(R.id.text_iv1)
         val testIv2 = findViewById<ImageView>(R.id.text_iv2)
+        val testBtn = findViewById<Button>(R.id.test_btn)
         lifecycleScope.launch {
 
             // 1. 使用async加载远程图片
@@ -36,6 +38,14 @@ class CoroutineActivity : AppCompatActivity() {
             // 2. 使用协程加载远程图片
             val bitmap = loadBitmapD()
             testIv2.setImageBitmap(bitmap)
+        }
+
+        // 弹出对话框
+        testBtn.setOnClickListener {
+            launchWithLifecycle {
+                val result = showConfirmDialog("提示", "你确定要退出吗？")
+                toast("result: $result")
+            }
         }
     }
 

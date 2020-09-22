@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 statusIv.setImageBitmap(bitmap)
             }
             // 测试Retrofit请求
-            retrofitRequest(this@MainActivity)
+            retrofitRequest()
             // 将回调转换为协程的测试用例
             val res = testCallbackToCoroutine()
             Log.i(TAG, "result: $res")
