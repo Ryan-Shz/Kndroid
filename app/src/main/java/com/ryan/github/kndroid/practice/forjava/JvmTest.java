@@ -18,11 +18,10 @@ public class JvmTest {
         // bean.getName();
 
         // 2. JvmName
-        JvmNameTest jvmNameTest = new JvmNameTest();
-        jvmNameTest.getTestName();
-        jvmNameTest.getTestAge();
-        jvmNameTest.setTestAge(2);
-        jvmNameTest.sayTest();
+        JvmNameTest.getTestName();
+        JvmNameTest.getTestAge();
+        JvmNameTest.setTestAge(2);
+        JvmNameTest.sayTest();
 
         // 3. JvmStatic
         JvmStaticTest.Companion.say();

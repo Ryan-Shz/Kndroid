@@ -1,6 +1,7 @@
 package com.ryan.github.kndroid.practice.type
 
 class Person(val name: String, val age: Int, private val sex: Int) {
+
     override fun equals(other: Any?): Boolean {
         val other = other as? Person ?: return false
         return this.name == other.name

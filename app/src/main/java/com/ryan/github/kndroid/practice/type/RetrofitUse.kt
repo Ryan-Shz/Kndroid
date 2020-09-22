@@ -1,6 +1,8 @@
 package com.ryan.github.kndroid.practice.type
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -8,6 +10,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 import java.io.File
+
+fun main() {
+    GlobalScope.launch {
+        retrofitRequest()
+    }
+}
 
 interface GithubApi {
     @GET("/repos/{owner}/{repo}")
@@ -20,7 +28,7 @@ suspend fun retrofitRequest() {
     }
 }
 
-suspend fun doRequest() {
+fun doRequest() {
     // 创建Retrofit对象
     val retrofit = Retrofit.Builder()
         .baseUrl("https://api.github.com")
@@ -40,8 +48,9 @@ suspend fun doRequest() {
         println("full_name: ${repository.full_name}")
         println("owner.login: ${repository.owner.login}")
 
+        val targetFile = File("kotlin.html")
         // Kotlin的扩展函数，扩展了File类, 增加了writeText方法
-        File("kotlin.html").writeText(
+        targetFile.writeText(
             """
             <!DOCTYPE html>
             <html>
