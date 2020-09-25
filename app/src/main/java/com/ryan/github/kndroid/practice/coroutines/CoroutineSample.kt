@@ -1,5 +1,6 @@
 package com.ryan.github.kndroid.practice.coroutines
 
+import com.ryan.github.kndroid.log
 import kotlinx.coroutines.*
 import java.lang.IllegalStateException
 import kotlin.concurrent.thread
@@ -82,10 +83,6 @@ fun threadSafe() = runBlocking {
         it.join()
     }
     log(num)
-}
-
-fun log(args: Any) {
-    println(args)
 }
 
 // CompletableDeferred的使用

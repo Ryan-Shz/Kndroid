@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         dataClassTest()
         testGeneric1()
         testGeneric2()
-        testNumberUtilAndCost()
         coroutineTest()
         printViewId(statusIv)
         testStringOperator()
@@ -77,14 +76,5 @@ class MainActivity : AppCompatActivity() {
         val to = arrayOfNulls<Person>(1)
         // from支持协变, to支持逆变
         test.copy(from, to)
-    }
-
-    private fun testNumberUtilAndCost() {
-        printlnTimeCost("Array", ::avgNumbersByArray)
-        printlnTimeCost("IntArray", ::avgNumbersByArray)
-        printlnTimeCost("List", ::avgNumbersByList)
-
-        val divByTreeList = divByTree()
-        Log.i(TAG, "div by tree list: $divByTreeList")
     }
 }
