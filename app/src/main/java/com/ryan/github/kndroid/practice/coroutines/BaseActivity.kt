@@ -3,10 +3,7 @@ package com.ryan.github.kndroid.practice.coroutines
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlin.coroutines.createCoroutine
 
 open class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope() {
@@ -20,6 +17,12 @@ open class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
         lifecycleScope.launch {
 
+        }
+
+        launch {
+            supervisorScope {
+
+            }
         }
 
         suspend {

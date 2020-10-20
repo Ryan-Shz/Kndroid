@@ -46,7 +46,7 @@ fun defaultParameters(x: Int = 0, y: String = "Hello", z: Long = 0L) {}
 // 什么时候使用inline?
 // 1. 创建的如果是高阶函数则可以直接加上inline
 // 2. 如果对包大小很敏感，则可以只加在频繁调用的高阶函数上
-inline fun cost(block: () -> Unit) {
+ fun cost(block: () -> Unit) {
     // 函数使用inline进行内联优化，它有两个好处
     // 1. 减少函数的调用栈，但优化效果可以忽略不计
     // 2. 避免高阶函数时创建额外的函数对象：lambda表达式会额外创建一个函数对象来包括执行体
@@ -61,6 +61,7 @@ inline fun noinline(noinline block: () -> Unit): () -> Unit {
     // 加上noline让block不进行内联
     // 那它才可以继续当成一个对象使用
     println(block.toString())
+    block.invoke()
     // 返回block对象
     return block
 }
